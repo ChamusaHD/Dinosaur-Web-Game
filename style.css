@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#game {
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    position: relative; /* Para que os filhos com position: absolute fiquem dentro desse contêiner */
+    overflow: hidden; /* Garante que elementos fora do jogo não sejam visíveis */
+}
+
+#character {
+    width: 20px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    top: 150px; /* Posição inicial */
+    left: 50px; /* Posição inicial fixa */
+}
+
+.animate {
+    animation: jump 500ms;
+}
+
+#block {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: absolute;
+    top: 180px; /* Alinhado com a base do personagem */
+    left: 480px; /* Início fora do jogo */
+    animation: block 1s infinite linear;
+}
+
+@keyframes jump {
+    0% { top: 150px; }
+    30% { top: 130px; }
+    70% { top: 130px; }
+    100% { top: 150px; }
+}
+
+@keyframes block {
+    0% { left: 480px; }
+    100% { left: -40px; }
+}
